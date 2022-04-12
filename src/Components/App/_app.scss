@@ -1,0 +1,16 @@
+/* Importem les variables */
+@import '../../Utilities/styles/variables';
+
+.cadt-app-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (max-width: $tablet) {
+  .cadt-app-container {
+    flex-direction: column;
+  }
+}

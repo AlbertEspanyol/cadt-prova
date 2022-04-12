@@ -1,0 +1,109 @@
+/* Importem les variables */
+@import '../../Utilities/styles/variables';
+
+.landing-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: $brand-gradient no-repeat center center;
+  background-clip: content-box;
+
+  animation: none;
+
+  > .landing-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
+    transition: opacity $mid-duration;
+
+    > img {
+      width: auto;
+      height: 150px;
+      margin-bottom: $spacing-xbig;
+    }
+
+    > .landing-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 550px;
+      padding: $spacing-xbig;
+      background: rgba($background-color, 0.3);
+      box-shadow: 0 16px 64px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(24px);
+      border-radius: $border-radius-big;
+
+      > :first-child {
+        margin-right: $spacing-xbig;
+      }
+    }
+  }
+
+  &.slide {
+    animation: $long-duration $bezier-timing 0s 1 slideIntoBar;
+
+    >.landing-content {
+      opacity: 0;
+    }
+  }
+
+  &.popIn {
+    >.landing-content {
+      animation: $long-duration $bezier-timing 0s 1 opacityPopIn;
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  .landing-container {
+    &.slide {
+      animation: $long-duration $bezier-timing 0s 1 slideIntoTopBar;
+
+      >.landing-content {
+        opacity: 0;
+      }
+    }
+  }
+
+  @media (max-width: $mobile-big) {
+    .landing-container {
+      > .landing-content {
+        > img {
+          width: auto;
+          height: 150px;
+          margin-bottom: $spacing-xbig;
+        }
+
+        > .landing-nav {
+          flex-direction: column;
+          width: 250px;
+
+          > :first-child {
+            margin-right: 0;
+            margin-bottom: $spacing-big
+          }
+        }
+      }
+    }
+
+    @media (max-width: $mobile) {
+      .landing-container {
+        > .landing-content {
+          > img {
+            height: 100px;
+          }
+
+          > .landing-nav {
+            width: 150px;
+          }
+        }
+      }
+    }
+  }
+}

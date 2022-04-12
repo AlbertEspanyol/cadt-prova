@@ -1,0 +1,119 @@
+/* Importem les variables */
+@import '../../Utilities/styles/variables';
+
+.side-bar-container {
+  min-width: 168px;
+  height: 100%;
+  background: $brand-color;
+  box-shadow: 0 8px 32px rgb($brand-color, 0.25);
+  padding: $spacing-medium;
+  animation: none;
+
+  > nav {
+    opacity: 1;
+    transition: opacity $mid-duration $bezier-timing;
+    animation: $short-duration $bezier-timing 0s 1 opacityPopIn;
+
+    > :first-child {
+      margin-bottom: $spacing-huge;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: $contrast-color;
+      animation: $mid-duration $bezier-timing 0s 1 opacityPopIn;
+
+      > li {
+        font-weight: 500 !important;
+      }
+
+      &.active {
+        > li {
+          color: $background-color;
+          background-color: $contrast-color;
+          box-shadow: 0 4px 16px rgb(0 0 0 / 20%);
+
+          &:hover {
+            background-color: $contrast-color;
+          }
+        }
+      }
+    }
+  }
+
+  &.slide {
+    animation: $long-duration $bezier-timing 0s 1 slideIntoLanding;
+
+    > nav {
+      opacity: 0;
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  .side-bar-container {
+    min-width: unset;
+    height: unset;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+
+    > nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      > ul {
+        display: flex;
+
+        > * {
+          margin-right: $spacing-big;
+        }
+      }
+      > :first-child {
+        margin: 0;
+      }
+
+      .nav-link {
+        > li {
+          margin: 0;
+        }
+      }
+    }
+
+    &.slide {
+      animation: none;
+
+      > nav {
+        opacity: 0;
+      }
+    }
+  }
+
+  @media (max-width: $mobile) {
+    .side-bar-container {
+      > nav {
+        > ul {
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          margin-bottom: 64px;
+          transform: translate(calc(-50%), calc(-50%));
+          background: rgba(200,200,200,0.3);
+          padding: 16px;
+          border-radius: 16px;
+          backdrop-filter: blur(12px);
+
+          > * {
+            margin-right: 0;
+          }
+
+          > :first-child {
+            margin-right: $spacing-big;
+          }
+        }
+      }
+    }
+  }
+}
+

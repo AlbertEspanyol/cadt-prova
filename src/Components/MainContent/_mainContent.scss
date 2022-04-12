@@ -1,0 +1,68 @@
+/* Importem les variables */
+@import '../../Utilities/styles/variables';
+
+.main-content {
+  animation: $short-duration $bezier-timing 0s 1 opacityPopIn;
+
+  > :first-child{
+    margin-bottom: $spacing-huge;
+  }
+}
+
+.table-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 70%;
+  align-items: center;
+}
+
+@media (max-width: $tablet) {
+  .main-content{
+    height: 100%;
+    &.slide {
+      animation: $short-duration $bezier-timing 0s 1 opacityPopOut;
+    }
+  }
+
+  .tablet-container {
+    background: #80C4B9;
+    box-shadow: 0 8px 32px rgb(128 196 185 / 25%);
+    padding: 16px;
+    animation: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+
+    > h2 {
+      font-size: 3rem;
+      margin-left: 8px;
+      transition: opacity $short-duration $bezier-timing;
+    }
+
+    &.slide {
+      animation: $long-duration $bezier-timing 0s 1 slideIntoLandingHeight;
+
+      > h2 {
+        opacity: 0;
+      }
+    }
+  }
+
+  .table-section {
+    height: 100%;
+  }
+
+  @media (max-width: $mobile-big) {
+    .main-content {
+      padding: 50px 16px 0 16px !important;
+    }
+    @media (max-width: $mobile) {
+      .main-content {
+        padding: 0 !important;
+      }
+    }
+  }
+}
+

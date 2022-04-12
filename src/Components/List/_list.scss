@@ -1,0 +1,46 @@
+/* Importem les variables */
+@import '../../Utilities/styles/variables';
+
+.list-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255 255 255 / 30%);
+  padding: 64px;
+  height: fit-content;
+  border-radius: 32px;
+  box-shadow: 0 16px 64px rgb(0 0 0 / 15%);
+  width: 100%;
+}
+
+.name-ball {
+  content: "";
+  background-color: $brand-color;
+  border-radius: $spacing-small;
+
+  > h6 {
+    color: $background-color;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: $tablet) {
+  .list-container {
+    padding: 32px;
+    overflow: hidden;
+    height: auto;
+
+    > div {
+      overflow-y: scroll;
+      max-height: 600px;
+      overflow-x: hidden;
+      margin-bottom: 32px;
+    }
+  }
+  
+  @media (max-width: $mobile ) {
+    .list-container {
+      box-shadow: none;
+    }
+  }
+}
